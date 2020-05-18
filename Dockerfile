@@ -20,7 +20,7 @@ RUN apt-get install -y --no-install-recommends \
         libicu60 \
         libssl1.1 \
         libstdc++6 \
-        zlib1g 
+        zlib1g
 
 RUN rm -rf /var/lib/apt/lists/*
 
@@ -44,13 +44,8 @@ ENV DOTNET_RUNNING_IN_CONTAINER=true \
 RUN dotnet help
 
 # Copy course notebooks
-COPY ./BinaryClassification/* ${HOME}/BinaryClassification/
-COPY ./Clustering/* ${HOME}/Clustering/
-COPY ./MulticlassClassification/* ${HOME}/MulticlassClassification/
-COPY ./NeuralNetworks/* ${HOME}/NeuralNetworks/
-COPY ./Recommendation/* ${HOME}/Recommendation/
-COPY ./Regression/* ${HOME}/Regression/
-COPY ./AnomalyDetection/* ${HOME}/AnomalyDetection/
+COPY ./Bike/* ${HOME}/Bike/
+COPY ./Taxi/* ${HOME}/Taxi/
 
 # Remove the work folder
 RUN rm -rf ./work
