@@ -44,8 +44,13 @@ ENV DOTNET_RUNNING_IN_CONTAINER=true \
 RUN dotnet help
 
 # Copy course notebooks
-COPY ./Bike/* ${HOME}/Bike/
-COPY ./Taxi/* ${HOME}/Taxi/
+COPY ./BinaryClassification/* ${HOME}/BinaryClassification/
+COPY ./Clustering/* ${HOME}/Clustering/
+COPY ./MulticlassClassification/* ${HOME}/MulticlassClassification/
+COPY ./NeuralNetworks/* ${HOME}/NeuralNetworks/
+COPY ./Recommendation/* ${HOME}/Recommendation/
+COPY ./Regression/* ${HOME}/Regression/
+COPY ./AnomalyDetection/* ${HOME}/AnomalyDetection/
 
 # Remove the work folder
 RUN rm -rf ./work
@@ -72,3 +77,5 @@ ENV DOTNET_TRY_CLI_TELEMETRY_OPTOUT=false
 
 # Set root to home folder
 WORKDIR ${HOME}/
+
+EXPOSE 8888
